@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------
+   Shadcn UI – Theme Variables
+--------------------------------*/
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+/* ------------------------------
+   Global Styles
+--------------------------------*/
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* -------------------------------------------------
+   ✨ Premium UI Enhancements – Global Additions
+--------------------------------------------------*/
+
+/* Smooth Fade Animations */
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.45s ease-in-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.45s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Glassmorphism UI Utility */
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/40 shadow-sm;
+  }
+}
+
+/* Premium Card Hover Effect */
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+}
+
+/* Button Glow Hover */
+@layer components {
+  .btn-glow {
+    @apply transition-all duration-300 hover:shadow-[0_8px_25px_rgba(59,130,246,0.45)];
+  }
+}
+
+/* Rounded UI Enhancements */
+@layer utilities {
+  .rounded-xl-lg {
+    border-radius: 1.1rem;
+  }
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Container Max Width */
+/* Container Max Width with reduced horizontal padding */
+/* Container Max Width with even smaller horizontal padding */
+.container {
+  max-width: 1240px;
+  padding-left: 0.25rem;   /* 4px */
+  padding-right: 0.25rem;  /* 4px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* Disable Tap Highlight on Mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Input Focus Glow */
+input:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+/* ------------------------------------------
+   🔽 Shadcn Dropdown – Premium Styling
+-------------------------------------------*/
+@layer components {
+  .dropdown-item {
+    @apply text-[15px] font-medium text-zinc-700 
+           px-3 py-2.5 rounded-md 
+           transition-all duration-200 
+           cursor-pointer;
+  }
+
+  .dropdown-item:hover {
+    @apply bg-zinc-100 text-black;
+  }
+
+  .dropdown-item:active {
+    @apply bg-zinc-200 scale-[0.98];
+  }
+
+  .dropdown-content {
+    @apply rounded-lg shadow-lg border border-zinc-200 
+           p-1 bg-white animate-fadeIn;
+  }
+
+  .dropdown-separator {
+    @apply my-1 h-px bg-zinc-200;
+  }
+}
+@layer components {
+  .dropdown-item {
+    @apply text-[15px] font-medium text-zinc-700
+           px-3 py-2.5 rounded-md
+           transition-all duration-200 cursor-pointer;
+  }
+
+  .dropdown-item:hover {
+    @apply bg-blue-50 text-blue-600;
+  }
+
+  .dropdown-content {
+    @apply p-1 rounded-lg shadow-lg;
+  }
+}
